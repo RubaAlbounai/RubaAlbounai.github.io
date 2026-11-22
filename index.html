@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruba Bounai | Backend developer (Laravel / PHP)</title>
+<meta name="description" content="Portfolio of Ruba Bounai, a backend developer in Moscow. Laravel and PHP projects with REST APIs, authentication and tests.">
+<meta property="og:title" content="Ruba Bounai | Backend developer">
+<meta property="og:description" content="Laravel and PHP projects with REST APIs, authentication and tests.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#4f46e5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+(function () {
+  var r = document.documentElement;
+  r.classList.add("js");
+  var t = null;
+  try { t = localStorage.getItem("theme"); } catch (e) {}
+  if (!t) t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  r.setAttribute("data-theme", t);
+})();
+</script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234f46e5'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='800' font-size='34' text-anchor='middle' fill='white'%3ER%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="#top" aria-label="Ruba Bounai">Ruba<span>.</span></a>
+    <nav id="menu" class="menu" aria-label="Main">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#experience" data-i18n="nav_experience">Experience</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <button class="icon-btn" id="theme" type="button" aria-label="Switch colour theme" data-i18n-aria="aria_theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Open the menu" aria-expanded="false" aria-controls="menu" data-i18n-aria="aria_menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="status"><i></i><span data-i18n="status">Available now · on-site or remote</span></span>
+        <p class="eyebrow" data-i18n="eyebrow">Backend developer · Moscow</p>
+        <h1 data-i18n-html="hero_title">I build reliable <em>APIs</em> and web apps with Laravel.</h1>
+        <p class="lead" data-i18n="hero_lead">I'm Ruba, a backend developer in Moscow. I build REST APIs and web applications with Laravel and MySQL, and I like to test what I build.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects" data-i18n="cta_projects">See my projects</a>
+          <a class="btn btn-ghost" id="cv-link" href="assets/cv/Ruba-Bounai-CV-EN.pdf" download data-i18n="cta_cv">Download CV</a>
+          <a class="btn btn-link" href="https://github.com/RubaAlbounai" target="_blank" rel="noopener">GitHub &rarr;</a>
+        </div>
+      </div>
+      <figure class="code-card" aria-label="Code sample">
+        <div class="code-bar"><i></i><i></i><i></i><span>OrderController.php</span></div>
+<pre><code><span class="c">// Prices always come from the database,</span>
+<span class="c">// never from the request.</span>
+<span class="k">$order</span> = <span class="f">DB</span>::<span class="f">transaction</span>(<span class="k">function</span> () {
+    <span class="k">$products</span> = <span class="f">Product</span>::<span class="f">whereIn</span>(<span class="s">'id'</span>, <span class="k">$ids</span>)
+        -&gt;<span class="f">lockForUpdate</span>()-&gt;<span class="f">get</span>();
+
+    <span class="k">$total</span> += <span class="k">$product</span>-&gt;price * <span class="k">$quantity</span>;
+    <span class="k">$order</span>-&gt;items()-&gt;<span class="f">createMany</span>(<span class="k">$lines</span>);
+});</code></pre>
+        <figcaption data-i18n="code_caption">From Maracaibo Furniture: the server calculates the total and checks the stock inside a transaction.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container two">
+      <div class="reveal">
+        <p class="kicker" data-i18n="about_kicker">About me</p>
+        <h2 data-i18n="about_title">Backend work, explained clearly.</h2>
+        <p data-i18n="about_p1">I studied Information Technology Engineering at Damascus University and have been writing Laravel back ends since 2021.</p>
+        <p data-i18n="about_p2">For many years I also taught programming, mathematics and English, which taught me to explain technical things in a simple way. I now live in Moscow and am learning Russian.</p>
+      </div>
+      <dl class="facts reveal">
+        <div><dt data-i18n="f_loc">Location</dt><dd data-i18n="f_loc_v">Moscow, Russia</dd></div>
+        <div><dt data-i18n="f_edu">Education</dt><dd data-i18n="f_edu_v">B.Eng. Information Technology Engineering, Damascus University, 2021</dd></div>
+        <div><dt data-i18n="f_lang">Languages</dt><dd data-i18n="f_lang_v">Arabic (native), English (C1), Russian (A1)</dd></div>
+        <div><dt data-i18n="f_work">Looking for</dt><dd data-i18n="f_work_v">A Laravel / PHP backend position, on-site in Moscow or remote</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section alt" id="projects">
+    <div class="container">
+      <div class="head reveal">
+        <p class="kicker" data-i18n="proj_kicker">Projects</p>
+        <h2 data-i18n="proj_title">Things I have built</h2>
+        <p data-i18n="proj_intro">Three projects that practise real back-end work. Each one is on GitHub with a README, and two have a live demo.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="shot g1"><img src="assets/screenshots/flowboard.png" alt="" loading="lazy" onerror="this.remove()"><span>Flowboard</span></div>
+          <div class="card-body">
+            <h3>Flowboard</h3>
+            <p data-i18n="p1_desc">A small project manager. Sign up, create projects and move tasks across a Kanban board with drag and drop; the order of the cards is saved. REST API with token authentication, per-user data isolation and PHPUnit tests.</p>
+            <p class="note" data-i18n="p1_note">Demo account: demo@example.com / password. The first load can take a minute.</p>
+            <ul class="tags"><li>Laravel</li><li>Sanctum</li><li>MySQL</li><li>PHPUnit</li><li>JavaScript</li></ul>
+            <div class="links">
+              <a class="btn btn-primary btn-sm" href="https://flowboard-1-2uyi.onrender.com/index.html" target="_blank" rel="noopener" data-i18n="live">Live demo</a>
+              <a class="btn btn-ghost btn-sm" href="https://github.com/RubaAlbounai/Flowboard" target="_blank" rel="noopener" data-i18n="code">Code on GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="shot g2"><img src="assets/screenshots/maracaibo.png" alt="" loading="lazy" onerror="this.remove()"><span>Maracaibo</span></div>
+          <div class="card-body">
+            <h3>Maracaibo Furniture</h3>
+            <p data-i18n="p2_desc">A furniture store with a REST API for products and orders. Prices and stock are checked on the server inside a transaction, the admin panel is protected with tokens, and customers choose cash on delivery or bank transfer at checkout.</p>
+            <p class="note" data-i18n="p2_note">The first load can take a minute, and the data resets when the server restarts.</p>
+            <ul class="tags"><li>Laravel</li><li>Sanctum</li><li>MySQL</li><li>PHPUnit</li><li>JavaScript</li></ul>
+            <div class="links">
+              <a class="btn btn-primary btn-sm" href="https://maracaibo-furniture.onrender.com/" target="_blank" rel="noopener" data-i18n="live">Live demo</a>
+              <a class="btn btn-ghost btn-sm" href="https://github.com/RubaAlbounai/Maracaibo-Furniture" target="_blank" rel="noopener" data-i18n="code">Code on GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="shot g3"><img src="assets/screenshots/valetta.png" alt="" loading="lazy" onerror="this.remove()"><span>Valetta</span></div>
+          <div class="card-body">
+            <h3>Valetta</h3>
+            <p data-i18n="p3_desc">Website for a restaurant in Moscow with home, menu, location and contact pages, built with Laravel Blade. I moved the CSS and JavaScript into separate files and cut the image folder from 44 MB to 2.6 MB.</p>
+            <ul class="tags"><li>Laravel Blade</li><li>CSS</li><li>JavaScript</li><li>Docker</li></ul>
+            <div class="links">
+              <a class="btn btn-ghost btn-sm" href="https://github.com/RubaAlbounai/valetta-website" target="_blank" rel="noopener" data-i18n="code">Code on GitHub</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="head reveal">
+        <p class="kicker" data-i18n="skills_kicker">Skills</p>
+        <h2 data-i18n="skills_title">What I work with</h2>
+      </div>
+      <div class="skills reveal">
+        <div><h3 data-i18n="s_backend">Backend</h3><ul class="tags"><li>PHP</li><li>Laravel</li><li>REST APIs</li><li>Laravel Sanctum</li><li>MVC</li></ul></div>
+        <div><h3 data-i18n="s_db">Databases</h3><ul class="tags"><li>MySQL</li><li>Eloquent</li><li data-i18n="s_migrations">Migrations</li></ul></div>
+        <div><h3 data-i18n="s_test">Testing</h3><ul class="tags"><li>PHPUnit</li><li data-i18n="s_feature">Feature tests</li></ul></div>
+        <div><h3>Frontend</h3><ul class="tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li></ul></div>
+        <div><h3 data-i18n="s_tools">Tools</h3><ul class="tags"><li>Git</li><li>GitHub</li><li>Postman</li><li data-i18n="s_docker">Docker (basic)</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="experience">
+    <div class="container narrow">
+      <div class="head reveal">
+        <p class="kicker" data-i18n="exp_kicker">Experience</p>
+        <h2 data-i18n="exp_title">Where I have worked</h2>
+      </div>
+      <ol class="timeline">
+        <li class="reveal">
+          <span class="when">2021 &ndash; 2025</span>
+          <h3 data-i18n="e1_title">Freelance Backend Developer (Laravel)</h3>
+          <ul>
+            <li data-i18n="e1_a">Developed REST APIs and CRUD modules for client web applications.</li>
+            <li data-i18n="e1_b">Designed MySQL schemas and relationships within an MVC structure.</li>
+            <li data-i18n="e1_c">Worked with frontend developers to integrate APIs into live applications.</li>
+          </ul>
+        </li>
+        <li class="reveal">
+          <span class="when">2017 &ndash; 2024</span>
+          <h3 data-i18n="e2_title">Teacher: programming, mathematics and English</h3>
+          <ul>
+            <li data-i18n="e2_a">Taught programming fundamentals, mathematics and English to students of different levels.</li>
+            <li data-i18n="e2_b">Broke down technical topics into clear steps and strengthened students' problem-solving.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact reveal">
+        <h2 data-i18n="c_title">Let's work together</h2>
+        <p data-i18n="c_text">I'm looking for a Laravel / PHP backend position. The best way to reach me is by email.</p>
+        <div class="actions center">
+          <a class="btn btn-light" href="mailto:rubabounai24@gmail.com">rubabounai24@gmail.com</a>
+          <a class="btn btn-outline" href="https://github.com/RubaAlbounai" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot">
+    <span>&copy; <span id="year"></span> Ruba Bounai</span>
+    <span data-i18n="footer">Built with plain HTML, CSS and JavaScript</span>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
